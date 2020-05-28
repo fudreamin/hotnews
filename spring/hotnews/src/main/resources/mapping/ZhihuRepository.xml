@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.dreamin.hotnews.repository.ZhihuRepository">
+
+    <select id="findAll" resultType="Zhihu">
+        select * from zhihu
+    </select>
+
+    <select id="deleteById" parameterType="Integer">
+        delete from zhihu where id=#{id}
+    </select>
+
+    <select id="findById" parameterType="Integer" resultType="Zhihu">
+        select * from zhihu where id=#{id}
+    </select>
+
+    <insert id="add" parameterType="Zhihu">
+        insert into zhihu(name,time,heat,type,address) values(#{name},#{time},#{heat},#{type},#{address})
+    </insert>
+
+    <insert id="updateById" parameterType="Zhihu">
+        update zhihu set name=#{name},time=#{time},heat=#{heat},type=#{type},address=#{address} where id=#{id}
+    </insert>
+</mapper>

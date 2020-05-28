@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.dreamin.hotnews.repository.BaiduRepository">
+
+    <select id="findAll" resultType="Baidu">
+        select * from baidu
+    </select>
+
+    <select id="deleteById" parameterType="Integer">
+        delete from baidu where id=#{id}
+    </select>
+
+    <select id="findById" parameterType="Integer" resultType="Baidu">
+        select * from baidu where id=#{id}
+    </select>
+
+    <insert id="add" parameterType="Baidu">
+        insert into baidu(name,time,heat,type,address) values(#{name},#{time},#{heat},#{type},#{address})
+    </insert>
+
+    <insert id="updateById" parameterType="Baidu">
+        update baidu set name=#{name},time=#{time},heat=#{heat},type=#{type},address=#{address} where id=#{id}
+    </insert>
+</mapper>
