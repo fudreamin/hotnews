@@ -1,19 +1,21 @@
 <template>
-    <div>
+    <div class="container">
         <div class="head">
             <div class="logo"></div>
             <div class="head_main"><a href="#">首页</a></div>
             <div class="head_more"><a href="#">更多</a></div>
             <div class="search">
-               <form>
-                   <input type="text" class="select_box"></input>
-                   <button type="submit" class="select_button">查找</button>
-               </form>
+                <form>
+                    <input type="text" class="select_box"></input>
+                    <button type="submit" class="select_button">查找</button>
+                </form>
             </div>
             <div class="login"><a href="/login">登录</a></div>
         </div>
         <div class="main">
-            <a href="/Special"><div class="main_specialColumn"> </div></a>
+            <a href="/Special">
+                <div class="main_specialColumn"></div>
+            </a>
             <div class="main_news">
                 <div class="main_news_rank">
                     <div>
@@ -22,17 +24,18 @@
                         <el-button class="news_select" @click="changeToBaidu()">百度</el-button>
                     </div>
                     <div class="news_form">
-                    <div v-for="item in news" class="news_row">
-                        <div class="form_id" v-if="item.id<=3" style="color:red">{{item.id}}</div>
-                        <div class="form_id" v-else style="color: #B3C0D1">{{item.id}}</div>
-                        <div class="form_name"><a :href="item.address">{{item.name}}</a></div>
-                        <div class="form_heat">{{item.heat}}万</div>
-                    </div>
+                        <div v-for="item in news" class="news_row">
+                            <div class="form_id" v-if="item.id<=3" style="color:red">{{item.id}}</div>
+                            <div class="form_id" v-else style="color: #B3C0D1">{{item.id}}</div>
+                            <div class="form_name"><a :href="item.address">{{item.name}}</a></div>
+                            <div class="form_heat">{{item.heat}}万</div>
+                        </div>
+                        <el-button type="primary" >主要按钮</el-button>
                     </div>
                 </div>
                 <div class="main_news_daily">
                     <div class="daily_recommended">
-                        <a v-bind:href="urlAdress" >
+                        <a v-bind:href="urlAdress">
                             <img class="daily_img" v-bind:src="one_image">
                         </a>
                     </div>
@@ -63,7 +66,7 @@
                 this.one_image = response.data;
             })
             this.$axios.get("http://localhost:8080/one/getSentence").then(response => {
-                this.one_sentence ="ONE日推："+response.data;
+                this.one_sentence = "ONE日推：" + response.data;
             })
         },
         data() {
@@ -76,9 +79,9 @@
                     type: '热',
                     address: 'https://element.eleme.cn/#/zh-CN/component/table'
                 }],
-                one_image:"http://image.wufazhuce.com/FpNcpQ9V8MN6RullPL7x6vjfowXS",
-                one_sentence:"ONE日推：永远年轻，永远热泪盈眶。",
-                urlAdress:"http://wufazhuce.com/one/2797"
+                one_image: "http://image.wufazhuce.com/FpNcpQ9V8MN6RullPL7x6vjfowXS",
+                one_sentence: "ONE日推：永远年轻，永远热泪盈眶。",
+                urlAdress: "http://wufazhuce.com/one/2797"
 
             }
         },
@@ -112,18 +115,18 @@
                 }
             })
         },
-        methods:{
-            changeToWeibo(){
+        methods: {
+            changeToWeibo() {
                 this.$axios.get("http://localhost:8080/weibo/findAll").then(response => {
                     this.news = response.data;
                 });
             },
-            changeToZhihu(){
+            changeToZhihu() {
                 this.$axios.get("http://localhost:8080/zhihu/findAll").then(response => {
                     this.news = response.data;
                 });
             },
-            changeToBaidu(){
+            changeToBaidu() {
                 this.$axios.get("http://localhost:8080/baidu/findAll").then(response => {
                     this.news = response.data;
                 });
@@ -149,7 +152,7 @@
         top: 0;
         min-width: 1200px;
         border-bottom: #eeeeee solid 1px;
-        box-shadow: #B3C0D1 2px 1px 2px 1px ;
+        box-shadow: #B3C0D1 2px 1px 2px 1px;
     }
 
     .logo {
@@ -161,7 +164,7 @@
         overflow: hidden;
     }
 
-    .head_main{
+    .head_main {
         float: left;
         margin-left: 50px;
         width: 120px;
@@ -169,18 +172,18 @@
         line-height: 60px;
     }
 
-    .head_main>a{
+    .head_main > a {
         font-size: 25px;
         color: silver;
     }
 
 
-    .head_more>a{
+    .head_more > a {
         font-size: 25px;
         color: silver;
     }
 
-    .head_more{
+    .head_more {
         float: left;
         margin-left: 50px;
         width: 120px;
@@ -199,14 +202,14 @@
         border: #eeeeee solid 1px;
     }
 
-    .select_box{
+    .select_box {
         float: left;
         margin-top: 15px;
         height: 30px;
         width: 60%;
     }
 
-    .select_button{
+    .select_button {
         float: left;
         margin-top: 10px;
         height: 30px;
@@ -215,7 +218,7 @@
         line-height: 30px;
         margin-top: 15px;
         background-color: #eeeeee;
-        border: cornflowerblue solid 1px ;
+        border: cornflowerblue solid 1px;
     }
 
     .login {
@@ -225,7 +228,7 @@
         line-height: 60px;
     }
 
-    .login>a{
+    .login > a {
         color: silver;
     }
 
@@ -263,45 +266,45 @@
         margin-bottom: 20px;
     }
 
-    .news_form{
+    .news_form {
         width: 100%;
         height: 90%;
-        overflow-y:auto;
+        overflow-y: auto;
     }
 
     .news_form::-webkit-scrollbar {
         display: none;
     }
 
-    .news_row{
-        width:100%;
-        height:10%;
+    .news_row {
+        width: 100%;
+        height: 10%;
     }
 
-    .form_id{
-        width:5%;
+    .form_id {
+        width: 5%;
         float: left;
     }
 
-    .form_name{
-        width:75%;
+    .form_name {
+        width: 75%;
         padding-left: 5%;
         float: left;
         text-align: left;
     }
 
-    .form_name>a{
+    .form_name > a {
         color: black;
     }
 
-    .form_heat{
-        width:15%;
+    .form_heat {
+        width: 15%;
         float: left;
         text-align: left;
         color: orangered;
     }
 
-    .form_heat>a{
+    .form_heat > a {
         color: orangered;
     }
 
@@ -313,16 +316,16 @@
         border: #B3C0D1 solid 1px;
     }
 
-    .daily_recommended{
+    .daily_recommended {
         width: 100%;
         height: auto;
     }
 
-    .daily_img{
+    .daily_img {
         width: 100%;
     }
 
-    .daily_sentence{
+    .daily_sentence {
         /*margin-top: 10px;*/
         height: auto;
         line-height: 30px;
@@ -330,7 +333,7 @@
         background-color: antiquewhite;
     }
 
-    .calendar{
+    .calendar {
         border: aqua solid 1px;
         height: 400px;
         width: 100%;

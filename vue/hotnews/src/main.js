@@ -5,9 +5,11 @@ import store from './store'
 import './plugins/element.js'
 import axios from 'axios';
 import echarts from 'echarts'
+import dataV from '@jiaminghi/data-view'
 Vue.prototype.$echarts = echarts
 Vue.prototype.$axios = axios;
 Vue.config.productionTip = false
+Vue.use(dataV)
 
 new Vue({
   router,

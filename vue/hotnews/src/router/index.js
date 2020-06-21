@@ -13,6 +13,7 @@ import Register from "../views/Register";
 import VisualData from "../views/VisualData";
 import Test from "../views/Test";
 import SpecialColumn from "../views/SpecialColumn";
+import VisualData2 from "../views/VisualData2";
 
 Vue.use(VueRouter)
 
@@ -99,6 +100,11 @@ const routes = [
         path:'/VisualData',
         name:'可视化数据',
         component: VisualData
+    },
+    {
+        path:'/VisualData2',
+        name:'可视化数据2',
+        component: VisualData2
     },
     {
         path:'/test',
