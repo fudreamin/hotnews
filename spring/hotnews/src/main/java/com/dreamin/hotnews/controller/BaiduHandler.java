@@ -59,7 +59,7 @@ public class BaiduHandler {
         baiduService.updateById(baidu);
     }
 
-    @Scheduled(fixedRate = 500000)
+    @Scheduled(fixedRate = 3600000)
     public void spider() throws IOException {
         String url = "http://top.baidu.com/buzz?b=341&c=513&fr=topbuzz_b1";
         Document document = Jsoup.connect(url).timeout(5000).get();

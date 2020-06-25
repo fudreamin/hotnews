@@ -31,7 +31,7 @@
         },
         methods: {
             register_check(){
-                this.$axios.post('http://localhost:8080/user/add/', this.user).then(response => {
+                this.$axios.post('http://39.107.143.213:8080/user/add/', this.user).then(response => {
                     this.$message({
                         showClose: true,
                         message: '注册成功',
@@ -48,7 +48,7 @@
     .container{
         width: 100%;
         height: 100%;
-        background: url("../assets/background.png") no-repeat;
+        background: url("../assets/background.jpg") no-repeat;
         background-size: cover;
         margin: 0 auto;
         padding: 0;

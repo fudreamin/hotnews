@@ -1,3 +1,4 @@
+<!--登录页面-->
 <template>
     <div class="container">
         <div class="user_form">
@@ -5,7 +6,7 @@
                 <form>
                     <input type="username" v-model="user.id" placeholder="  账号" id="username"></input><br>
                     <input type="password" v-model="user.password" placeholder="    密码" id="password"></input><br>
-                    <button class="login_button" @click="login()">登录</button>
+                    <button class="login_button" @click="clickLogin()">登录</button>
                     <br>
                     <p>还没有账号？<a href="/register">前往注册</a></p>
                 </form>
@@ -21,20 +22,49 @@
             return {
                 check: false,
                 user: {
-                    id: '',
-                    name: '',
-                    password: '',
-                    age: '',
-                    gender: '',
+                    id: '1',
+                    name: '张三',
+                    password: '123456',
+                    age: '18',
+                    gender: '男',
                 },
+                users: [{
+                    id: '1',
+                    name: '张三',
+                    password: '123456',
+                    age: '18',
+                    gender: '男',
+                }],
                 count: []
             }
         },
-        methods: {
-            login() {
-                this.$router.push("/");
-            },
+        created() {
 
+            this.$axios.get('http://39.107.143.213:8080/user/findAll').then(response => {
+                this.users = response.data;
+            });
+        },
+        methods: {
+            clicks(){
+                this.$router.push('/');
+            },
+            clickLogin() {
+                let flag=false;
+                for (let i=0;i<this.users.length;i++) {
+                    // alert(this.users[i].id+" "+this.user.id);
+                    // alert(this.users[i].password+" "+this.user.password);
+                    if (this.users[i].id==this.user.id &&this.users[i].password==this.user.password) {
+                        flag=true;
+                        break;
+                    }
+                }
+                alert(flag);
+                if(flag===true){
+                    this.$router.push('/');
+                }else{
+                    alert("密码错误");
+                }
+            }
         },
     }
 
@@ -44,7 +74,7 @@
     .container {
         width: 100%;
         height: 100%;
-        background: url("../assets/background.png") no-repeat;
+        background: url("../assets/background.jpg") no-repeat;
         background-size: cover;
         margin: 0 auto;
         padding: 0;

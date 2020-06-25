@@ -126,7 +126,7 @@
             }
         },
         created() {
-            this.$axios.get('http://localhost:8080/map/findAll').then(response => {
+            this.$axios.get('http://39.107.143.213:8080/map/findAll').then(response => {
                 this.data1 = response.data;
                 for (let i = 0; i < this.data1.length; i++) {
                     this.newArr[i].name = this.data1[i].name;

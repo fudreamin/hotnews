@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.dreamin.hotnews.repository.StarRepository">
+
+    <select id="findAll" resultType="Star">
+        select * from star
+    </select>
+
+    <select id="login" resultType="Star">
+        select * from star where id=#{id} and password=#{password}
+    </select>
+
+    <select id="deleteById" parameterType="Integer">
+        delete from star where id=#{id}
+    </select>
+
+    <select id="findById" parameterType="Integer" resultType="Star">
+        select * from star where id=#{id}
+    </select>
+
+    <insert id="add" parameterType="Star">
+        insert into star(name) values(#{name})
+    </insert>
+
+    <insert id="updateById" parameterType="Star">
+        update star set name=#{name} where id=#{id}
+    </insert>
+</mapper>

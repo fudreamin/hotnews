@@ -19,6 +19,6 @@
     </insert>
 
     <insert id="updateById" parameterType="Zhihu">
-        update zhihu set name=#{name},time=#{time},heat=#{heat},type=#{type},address=#{address} where id=#{id}
+         update zhihu set name=#{name},time=#{time},heat=#{heat},type=#{type},address=#{address},context=#{context},`comment`=#{comment},`like`=#{like},forward=#{forward},isAdvertisement=#{isAdvertisement},isBan=#{isBan},isHot=#{isHot} where id=#{id}
     </insert>
 </mapper>

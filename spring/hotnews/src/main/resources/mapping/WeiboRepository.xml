@@ -19,6 +19,10 @@
     </insert>
 
     <insert id="updateById" parameterType="Weibo">
-        update weibo set name=#{name},time=#{time},heat=#{heat},type=#{type},address=#{address} where id=#{id}
+        update weibo set name=#{name},time=#{time},heat=#{heat},type=#{type},address=#{address},context=#{context},`comment`=#{comment},`like`=#{like},forward=#{forward},isAdvertisement=#{isAdvertisement},isBan=#{isBan},isHot=#{isHot} where id=#{id}
     </insert>
+
+<!--    <insert id="updateById" parameterType="Weibo">-->
+<!--        update weibo set name=#{name},time=#{time},heat=#{heat},type=#{type},address=#{address} where id=#{id}-->
+<!--    </insert>-->
 </mapper>

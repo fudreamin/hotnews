@@ -58,7 +58,7 @@
             onSubmit(form) {
                 this.$refs[form].validate((valid) => {
                     if (valid) {
-                        this.$axios.post('http://localhost:8080/weibo/add/', this.form).then(response => {
+                        this.$axios.post('http://39.107.143.213:8080/weibo/add/', this.form).then(response => {
                             this.$message({
                                 showClose: true,
                                 message: '添加成功',

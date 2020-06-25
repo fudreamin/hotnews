@@ -39,7 +39,7 @@
                 rules: {
                     name: [
                         {required: true, message: '请输入新闻名称', trigger: 'blur'},
-                        {min: 1, max: 100, message: '长度在 1 到 100 个字符', trigger: 'blur'}
+                        {min: 1, max: 100, message: '长度在 1 到 100 39.107.143.213字符', trigger: 'blur'}
                     ],
                     heat: [
                         {required: true, message: '请输入热度', trigger: 'blur'},
@@ -56,7 +56,7 @@
             }
         },
         created() {
-            this.$axios.get('http://localhost:8080/weibo/findById/'+this.$route.query.id).then(response=>{
+            this.$axios.get('http://39.107.143.213:8080/weibo/findById/'+this.$route.query.id).then(response=>{
                 this.form=response.data;
             })
         },
@@ -64,7 +64,7 @@
             onSubmit(form) {
                 this.$refs[form].validate((valid) => {
                     if (valid) {
-                        this.$axios.post('http://localhost:8080/weibo/updateById/',this.form).then(response => {
+                        this.$axios.post('http://39.107.143.213:8080/weibo/updateById/',this.form).then(response => {
                             this.$message({
                                 showClose: true,
                                 message: '更新成功',

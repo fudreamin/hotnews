@@ -61,7 +61,7 @@
     export default {
         name: "NewManage",
         created() {
-            this.$axios.get("http://localhost:8080/weibo/findPage/1/8").then(response => {
+            this.$axios.get("http://39.107.143.213:8080/weibo/findPage/1/8").then(response => {
                 this.tableData = response.data.list;
                 this.pageSize=response.data.pageSize;
                 this.total=response.data.total;
@@ -91,7 +91,7 @@
                 })
             },
             deleteClick(row){
-                this.$axios.delete("http://localhost:8080/weibo/deleteById/"+row.id).then(response=>{
+                this.$axios.delete("http://39.107.143.213:8080/weibo/deleteById/"+row.id).then(response=>{
                     this.$message({
                         showClose: true,
                         message: '删除成功',
@@ -101,7 +101,7 @@
                 });
             },
             page(data) {
-                this.$axios.get("http://localhost:8080/weibo/findPage/"+data+"/8").then(response => {
+                this.$axios.get("http://39.107.143.213:8080/weibo/findPage/"+data+"/8").then(response => {
                     this.tableData = response.data.list;
                     this.pageSize= response.data.pageSize;
                     this.total=response.data.total;

@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.dreamin.hotnews.repository.WeiboDataRepository">
+
+    <select id="findAll" resultType="WeiboData">
+        select * from weibodata
+    </select>
+
+    <select id="deleteById" parameterType="Integer">
+        delete from weibodata where id=#{id}
+    </select>
+
+    <select id="findById" parameterType="Integer" resultType="WeiboData">
+        select * from weibodata where id=#{id}
+    </select>
+
+    <select id="findByName" parameterType="String" resultType="Integer">
+        select heat from weibodata where name=#{name}
+    </select>
+
+    <insert id="add" parameterType="WeiboData">
+        insert into weibodata (name,heat) values(#{name},#{heat})
+    </insert>
+
+    <insert id="updateById" parameterType="WeiboData">
+         update weibodata set name=#{name},heat={heat} where id=#{id}
+    </insert>
+</mapper>
